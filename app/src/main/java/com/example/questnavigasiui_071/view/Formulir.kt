@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.example.questnavigasiui_071.R
 
 @Composable
+
 fun FormIsian(
     jenisK: List<String> = listOf("Laki-laki","Perempuan"),
     OnSubmitBtnClick : () -> Unit
