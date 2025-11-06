@@ -1,12 +1,14 @@
 package com.example.questnavigasiui_071
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
-import androidx.navigation.NavHost
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.NavHost
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import java.lang.reflect.Modifier
+
 
 enum class Navigasi {
 
@@ -17,7 +19,7 @@ enum class Navigasi {
 
 @Composable
 fun DataApp(
-    navController: NavController = rememberNavController(),
+    navController: NavHostController = rememberNavController(),
     modifier: Modifier
 ){
     Scaffold { isiRuang->
@@ -33,7 +35,13 @@ fun DataApp(
                     }
                 )
             }
+            composable(route = Navigasi.Detail.name){
+                TampilData(
+                onBackBtnClick = {
+                    cancelAndBackToFormulirku(navController)
+                }
+                )
+            }
         }
     }
-
 }
